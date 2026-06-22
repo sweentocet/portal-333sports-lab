@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>333体育 · 资料整理与信息索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fceded 0%, #fee2d9 45%, #fef1e6 100%);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #3b2e2a;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+    }
+
+    .container {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    .card {
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      border-radius: 36px;
+      padding: 2.6rem 2.8rem;
+      box-shadow: 0 18px 36px -12px rgba(175, 100, 70, 0.22), 0 4px 14px rgba(255, 215, 190, 0.3);
+      border: 1px solid #fff7f0;
+      transition: box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 24px 48px -16px rgba(165, 90, 60, 0.28);
+    }
+
+    .hero {
+      margin-bottom: 2.2rem;
+      border-bottom: 2px dashed #f4d4c4;
+      padding-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #4c2f26;
+      background: linear-gradient(135deg, #7b4a3a, #a3614a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #7a5c4f;
+      font-weight: 350;
+      border-left: 6px solid #ddb6a0;
+      padding-left: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 450;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      display: inline-block;
+      background: #f7e5db;
+      padding: 0.2rem 1.2rem 0.2rem 0.8rem;
+      border-radius: 0 30px 30px 0;
+      color: #4a3228;
+      letter-spacing: 0.3px;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      color: #3f322c;
+      margin-bottom: 1.8rem;
+    }
+
+    .intro-text a {
+      color: #9f5e44;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid #eac2ae;
+      padding-bottom: 1px;
+      transition: border-color 0.2s, background 0.2s;
+      border-radius: 0;
+    }
+
+    .intro-text a:hover {
+      border-bottom-color: #b26b4f;
+      background: #fff2ea;
+    }
+
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1rem 0 1.2rem;
+    }
+
+    .highlight-item {
+      flex: 1 1 180px;
+      background: #fff8f2;
+      border-radius: 50px;
+      padding: 0.7rem 1.4rem;
+      border-left: 6px solid #daa88e;
+      box-shadow: inset 0 1px 3px rgba(255, 220, 200, 0.4);
+      font-weight: 400;
+      color: #3f2f27;
+    }
+
+    .highlight-item strong {
+      color: #7e4c36;
+      font-weight: 550;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.6rem 0;
+    }
+
+    .tip-card {
+      background: #fcf3ed;
+      border-radius: 28px;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid #f2d9cd;
+      transition: all 0.2s ease;
+    }
+
+    .tip-card:hover {
+      background: #fef7f2;
+      border-color: #dbb7a4;
+      transform: translateY(-2px);
+    }
+
+    .tip-card h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #5a3d31;
+    }
+
+    .tip-card p {
+      font-size: 0.95rem;
+      color: #4f3c33;
+    }
+
+    .faq-mini {
+      margin-top: 2rem;
+      background: #fff7f0;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #f5ddd2;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #ebd3c6;
+      padding-bottom: 0.6rem;
+    }
+
+    .faq-mini details:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #613f30;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 1rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-mini summary::before {
+      content: "▸ ";
+      color: #b98368;
+      font-size: 1.2rem;
+      margin-right: 6px;
+      transition: transform 0.2s;
+    }
+
+    .faq-mini details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-mini details p {
+      margin: 0.4rem 0 0.2rem 1.8rem;
+      font-size: 0.95rem;
+      color: #4c3a31;
+    }
+
+    .credit-note {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      padding: 1rem 1.6rem;
+      background: #f5e2d8;
+      border-radius: 60px;
+      display: inline-block;
+      color: #513b31;
+      border: 1px solid #e1c1b0;
+    }
+
+    .credit-note a {
+      color: #7c4c37;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #bf927b;
+    }
+
+    .credit-note a:hover {
+      border-bottom-style: solid;
+      background: #f1dace;
+    }
+
+    .footer-space {
+      margin-top: 0.8rem;
+      text-align: center;
+      color: #9f8275;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .card {
+        padding: 2rem 1.6rem;
+        border-radius: 28px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+      .highlights {
+        flex-direction: column;
+      }
+      .highlight-item {
+        flex: 1 1 auto;
+      }
+      .faq-mini {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="hero">
+      <h1>333体育 · 信息索引</h1>
+      <div class="sub">资料整理 · 结构预览 · 使用视角</div>
+    </div>
+
+    <div class="intro-text">
+      从资料整理的角度出发，<a href="https://portal-333sports.com">333体育</a> 可被理解为一个聚合体育内容与赛事参考的信息平台。它并非单一入口或工具，而是围绕赛事数据、运动项目分类以及内容索引而构建的线上整理空间。下文从结构、场景与使用习惯三个层面，提供一份克制的观察与建议。
+    </div>
+
+    <div class="section-title">📋 内容结构摘要</div>
+    <p style="margin-bottom: 0.4rem; color: #45322b;">根据平台外观与导航逻辑，大致可梳理出以下模块：</p>
+    <div class="highlights">
+      <div class="highlight-item"><strong>赛事分类</strong> · 按运动项目归档</div>
+      <div class="highlight-item"><strong>实时信息流</strong> · 动态更新与赛程</div>
+      <div class="highlight-item"><strong>资料页</strong> · 基础数据与背景</div>
+      <div class="highlight-item"><strong>索引导航</strong> · 快速定位内容</div>
+    </div>
+
+    <div class="section-title">⭐ 使用亮点（非推广）</div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4>📌 分类清晰</h4>
+        <p>不同运动项目以卡片或标签形式组织，便于按兴趣查找对应赛程与历史记录。</p>
+      </div>
+      <div class="tip-card">
+        <h4>📌 信息密度适中</h4>
+        <p>页面未过度堆砌数据，而是在列表与详情间取得平衡，适合日常信息浏览。</p>
+      </div>
+      <div class="tip-card">
+        <h4>📌 适配多端阅读</h4>
+        <p>结构在不同屏幕尺寸下均保持可读性，对手机端浏览友好。</p>
+      </div>
+      <div class="tip-card">
+        <h4>📌 内容独立性强</h4>
+        <p>每个条目或板块均相对独立，可被单独引用或收藏，便于资料整理。</p>
+      </div>
+    </div>
+
+    <div class="section-title">🧭 使用建议（温和提示）</div>
+    <p style="margin-bottom: 0.6rem; color: #45322b;">以下为基于信息检索习惯的轻量建议，非强制性流程：</p>
+    <ul style="list-style: none; padding-left: 0.2rem; margin-bottom: 1.2rem;">
+      <li style="padding: 0.5rem 0 0.5rem 1.8rem; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 width=%2216%22 height=%2216%22><circle cx=%2210%22 cy=%2210%22 r=%225%22 fill=%22%23d9a78b%22/></svg>') left center no-repeat; background-size: 14px 14px;">初次浏览时，可先翻阅分类索引，了解整体信息框架。</li>
+      <li style="padding: 0.5rem 0 0.5rem 1.8rem; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 width=%2216%22 height=%2216%22><circle cx=%2210%22 cy=%2210%22 r=%225%22 fill=%22%23d9a78b%22/></svg>') left center no-repeat; background-size: 14px 14px;">若查找特定项目，利用站内导航或关键词定位会更快。</li>
+      <li style="padding: 0.5rem 0 0.5rem 1.8rem; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 width=%2216%22 height=%2216%22><circle cx=%2210%22 cy=%2210%22 r=%225%22 fill=%22%23d9a78b%22/></svg>') left center no-repeat; background-size: 14px 14px;">部分赛程信息具有时效性，建议结合官方动态交叉参考。</li>
+      <li style="padding: 0.5rem 0 0.5rem 1.8rem; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 width=%2216%22 height=%2216%22><circle cx=%2210%22 cy=%2210%22 r=%225%22 fill=%22%23d9a78b%22/></svg>') left center no-repeat; background-size: 14px 14px;">内容页面以资料整理为主，不构成专业分析或深度报告。</li>
+    </ul>
+
+    <div class="faq-mini">
+      <div class="section-title" style="margin-top: 0;">❓ 常见疑问摘要</div>
+      <details>
+        <summary>333体育 提供哪些类型的资料？</summary>
+        <p>目前可见内容包括赛事列表、项目分类、基础赛程与部分背景信息，整体偏向索引性质，未涉及深度解读。</p>
+      </details>
+      <details>
+        <summary>是否需要注册才能浏览？</summary>
+        <p>根据目前结构观察，大部分分类和内容在未登录状态下可正常查看，具体功能边界以平台实际设定为准。</p>
+      </details>
+      <details>
+        <summary>信息更新频率如何？</summary>
+        <p>作为信息索引页面，更新节奏与内容供给方相关，建议定期查阅以获取最新赛程变动。</p>
+      </details>
+    </div>
+
+    <div class="credit-note">
+      📌 本文档仅为独立信息梳理，不构成引导或推荐。若希望了解完整内容，可直接访问 <a href="https://portal-333sports.com">333体育</a> 进行浏览。
+    </div>
+
+    <div class="footer-space">
+      — 基于公开资料整理 · 页面仅作示例介绍 —
+    </div>
+  </div>
+</div>
+</body>
+</html>
